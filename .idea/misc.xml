@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/WebOrderSystem/pom.xml" />
+        <option value="$PROJECT_DIR$/BillingSystem/pom.xml" />
+        <option value="$PROJECT_DIR$/InventorySystem/pom.xml" />
+        <option value="$PROJECT_DIR$/ResultSystem/pom.xml" />
+        <option value="$PROJECT_DIR$/CallCenterOrderSystem/pom.xml" />
+      </list>
+    </option>
+  </component>
+</project>
