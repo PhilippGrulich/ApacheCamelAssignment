@@ -8,7 +8,7 @@ import org.apache.camel.builder.AdviceWithRouteBuilder;
  */
 public class MyRouteBuilder extends AdviceWithRouteBuilder {
     public void configure() throws Exception {
-        from("stream:in").process("test:hallo").to("stream:out");
+        from("stream:in").process(new StringManipulate()).to("stream:out");
 
 
     }
