@@ -14,6 +14,9 @@ import org.apache.camel.processor.aggregate.AggregationStrategy;
  */
 public class InventorySystem {
 
+    int surfCount = 100;
+    int diveCount = 100;
+
     public static void main(String[] args) throws Exception {
         CamelContext cc = new DefaultCamelContext();
         ActiveMQComponent activeMQComponent = ActiveMQComponent.activeMQComponent();
@@ -25,9 +28,11 @@ public class InventorySystem {
             @Override
             public void configure() throws Exception {
                 from("activemq:queue:InventorySystem")
+
                         .process(new Processor() {
                             public void process(Exchange exchange) throws Exception {
                                 Object in = exchange.getIn().getBody();
+
                                 System.out.println("Inventory"+in);
                                 exchange.getOut().setBody(in);
 

@@ -1,13 +1,13 @@
 package de.tub.da.resultsystem;
 
+import de.tu.comon.Order;
 import org.apache.activemq.camel.component.ActiveMQComponent;
-import org.apache.camel.CamelContext;
-import org.apache.camel.Exchange;
-import org.apache.camel.ExchangePattern;
-import org.apache.camel.Processor;
+import org.apache.camel.*;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.processor.aggregate.AggregationStrategy;
+
+import java.util.HashMap;
 
 /**
  * Created by philipp on 17.01.17.
@@ -22,11 +22,13 @@ public class ResultSystem {
         cc.addRoutes(new RouteBuilder() {
             @Override
             public void configure() throws Exception {
-                from("activemq:queue:NEW_ORDER")
+                errorHandler(loggingErrorHandler("mylogger.name").level(LoggingLevel.INFO));
+                from("activemq:queue:NEW_ORDER").errorHandler(loggingErrorHandler("mylogger.name").level(LoggingLevel.INFO))
                         .multicast(new AggregationStrategy() {
                             public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {
-                                Order oldMessage = oldExchange ==null ? null : oldExchange.getIn().getBody(Order.class);
-                                Order newMessage = newExchange.getIn().getBody(Order.class);
+                                System.out.println("Message agg");
+                                HashMap oldMessage = oldExchange ==null ? null : oldExchange.getIn().getBody(  HashMap.class);
+                                HashMap newMessage = newExchange.getIn().getBody(HashMap.class);
                                 if (oldMessage==null)
                                     return newExchange;
                                 return null;

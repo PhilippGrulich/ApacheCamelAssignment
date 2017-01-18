@@ -1,4 +1,4 @@
-package de.tub.da;
+package de.tu.comon;
 
 import javax.jms.ObjectMessage;
 import java.io.Serializable;
@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
  * Created by philipp on 17.01.17.
  */
-public class Order  implements ObjectMessage {
+public class Order  implements Serializable {
     String CustomerID;
     String FirstName;
     String LastName;

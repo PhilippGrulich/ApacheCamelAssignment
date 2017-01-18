@@ -1,4 +1,4 @@
-package de.tub.da.resultsystem;
+package de.tu.comon;
 
 import java.io.Serializable;
 

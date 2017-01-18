@@ -1,4 +1,4 @@
-package inventorySystem;
+package de.tu.comon;
 
 import java.io.Serializable;
 
@@ -30,7 +30,7 @@ public class Order implements Serializable {
 
     @Override
     public String toString() {
-        return "inventorySystem.Order{" +
+        return "Order{" +
                 "CustomerID='" + CustomerID + '\'' +
                 ", FirstName='" + FirstName + '\'' +
                 ", LastName='" + LastName + '\'' +
