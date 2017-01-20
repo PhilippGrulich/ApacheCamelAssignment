@@ -1,0 +1,1 @@
+curl -i -X POST -H "Content-Type:text/plain" -d 'Alice,Test,2,0,0' 'http://localhost:4567/order'

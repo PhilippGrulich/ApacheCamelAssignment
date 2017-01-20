@@ -1,0 +1,1 @@
+java -cp ApacheCamelAssignment.jar de.tub.da.billingsystem.BillingSystem
