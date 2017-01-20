@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BillingSystem/BillingSystem.iml" filepath="$PROJECT_DIR$/BillingSystem/BillingSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CallCenterOrderSystem/CallCenterOrderSystem.iml" filepath="$PROJECT_DIR$/CallCenterOrderSystem/CallCenterOrderSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InventorySystem/InventorySystem.iml" filepath="$PROJECT_DIR$/InventorySystem/InventorySystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ResultSystem/ResultSystem.iml" filepath="$PROJECT_DIR$/ResultSystem/ResultSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebOrderSystem/WebOrderSystem.iml" filepath="$PROJECT_DIR$/WebOrderSystem/WebOrderSystem.iml" />
+    </modules>
+  </component>
+</project>

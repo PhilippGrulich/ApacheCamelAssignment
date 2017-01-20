@@ -1,19 +1,29 @@
 package de.tub.da.callcenter;
 
 
+import jdk.nashorn.internal.codegen.CompilerConstants;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.IntStream;
 
 /**
- * Created by philipp on 17.01.17.
+ * This is a simulator for a simple call center.
+ *
  */
 public class CallCenter {
-    public static void main(String[] args) throws IOException, InterruptedException {
+
+
+    private final String[] userList = {"Klaus Müller", "Peter Fischer", "Hans Schmitt", "Bastian Schulze"};
+
+    CallCenter() throws IOException, InterruptedException {
 
         String tempdir = System.getProperty("user.home");
-
         String fileDir = tempdir+"/callcenter/out.txt";
         System.out.println(fileDir);
         File f = new File(fileDir);
@@ -21,26 +31,38 @@ public class CallCenter {
         f.getParentFile().mkdirs();
         f.createNewFile();
 
-
         System.out.print("Callcenter ins running");
         while(!Thread.interrupted()) {
-            System.out.println("Callcenter ins writing");
+
             FileWriter fw = new FileWriter(f);
-            fw.write(generateOrder());
+            String newOrder = generateOrder();
+            System.out.println("Callcenter is writing: "+ newOrder);
+            fw.write(newOrder);
             fw.write("\n");
             fw.flush();
             fw.close();
             Thread.sleep(10000);
         }
+    }
 
+    private String generateOrder(){
+        ThreadLocalRandom random = ThreadLocalRandom.current();
+
+       // int userID = random.nextInt(0, 3);
+       int userID = 1;
+        String userName = this.userList[userID];
+
+        int surfboards = random.nextInt(0,5);
+        int suits = random.nextInt(0,5);
+
+        //CustomerID, Fullname, Number of surfboards, Number of diving suits
+        return "<" + userID + ","+ userName + "," + surfboards + "," + suits+">";
 
     }
 
-    public static String generateOrder(){
-        Random random = new Random(555);
-        //CustomerID, Fullname, Number of surfboards, Number of diving suits
-        return "<" + random.nextInt() + ","+ "Klaus Müller " + "," + random.nextInt() + "," + random.nextInt()+">";
 
+    public static void main(String[] args) throws IOException, InterruptedException {
+        new CallCenter();
     }
 
 
